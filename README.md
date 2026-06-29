@@ -1,4 +1,4 @@
-# AEP — AI Enterprise Platform
+﻿# AEP — AI Enterprise Platform
 
 Версия: 0.1-alpha
 
