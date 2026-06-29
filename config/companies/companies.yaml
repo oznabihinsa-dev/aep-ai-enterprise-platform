@@ -1,0 +1,19 @@
+version: 1.0
+
+companies:
+
+  - id: COMPANY-001
+    name: ООО ТЕПЛО
+    short: ТЕПЛО
+
+  - id: COMPANY-002
+    name: ООО ВЭЛС
+    short: ВЭЛС
+
+  - id: COMPANY-003
+    name: ООО ДВТК
+    short: ДВТК
+
+  - id: COMPANY-004
+    name: ООО КАСКАД
+    short: КАСКАД
