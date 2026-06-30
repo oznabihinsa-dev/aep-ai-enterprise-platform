@@ -1,1 +1,24 @@
 version: 1.0
+
+departments:
+
+  - id: DEP-001
+    name: Управление
+
+  - id: DEP-002
+    name: Коммерческий отдел
+
+  - id: DEP-003
+    name: Юридический отдел
+
+  - id: DEP-004
+    name: Финансовый отдел
+
+  - id: DEP-005
+    name: Логистический отдел
+
+  - id: DEP-006
+    name: IT отдел
+
+  - id: DEP-007
+    name: Аналитический отдел

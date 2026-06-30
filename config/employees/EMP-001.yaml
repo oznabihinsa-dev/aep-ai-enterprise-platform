@@ -1,1 +1,25 @@
+id: EMP-001
+
+name: Главный диспетчер
+
+department: DEP-001
+
+role: dispatcher
+
+status: active
+
+processes:
+
+  - BP-001
+
+knowledge:
+
+  - companies
+  - documents
+  - routing
+
+permissions:
+
+  - route_tasks
+
 version: 1.0
