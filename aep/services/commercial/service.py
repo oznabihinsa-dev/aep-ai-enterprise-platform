@@ -5,16 +5,23 @@ from .price_repository import PriceRepository
 from .template_repository import TemplateRepository
 from .certificate_repository import CertificateRepository
 from .document_generator import DocumentGenerator
-
+from aep.config.settings import Settings
 
 class CommercialService:
     def __init__(self):
         self.validator = CommercialValidator()
         self.document_generator = DocumentGenerator()
+
         self.context_builder = CommercialContextBuilder(
-            price_repo=PriceRepository("sample_data/price/Расчет цены на 2026 год.xlsx"),
-            template_repo=TemplateRepository("sample_data/templates"),
-            certificate_repo=CertificateRepository("sample_data/certificates"),
+            price_repo=PriceRepository(
+                Settings.paths.PRICE / "Расчет цены на 2026 год.xlsx"
+            ),
+            template_repo=TemplateRepository(
+                Settings.paths.TEMPLATES
+            ),
+            certificate_repo=CertificateRepository(
+                Settings.paths.CERTIFICATES
+            ),
         )
 
     def prepare_offer(self, request: CommercialOfferRequest) -> CommercialOfferResult:
