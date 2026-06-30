@@ -1,12 +1,19 @@
 from .models import CommercialOfferRequest, CommercialOfferResult
 from .validator import CommercialValidator
-from .calculator import PriceCalculator
+from .context_builder import CommercialContextBuilder
+from .price_repository import PriceRepository
+from .template_repository import TemplateRepository
+from .certificate_repository import CertificateRepository
 
 
 class CommercialService:
     def __init__(self):
         self.validator = CommercialValidator()
-        self.calculator = PriceCalculator()
+        self.context_builder = CommercialContextBuilder(
+            price_repo=PriceRepository("sample_data/price/Расчет цены на 2026 год.xlsx"),
+            template_repo=TemplateRepository("sample_data/templates"),
+            certificate_repo=CertificateRepository("sample_data/certificates"),
+        )
 
     def prepare_offer(self, request: CommercialOfferRequest) -> CommercialOfferResult:
         missing_fields = self.validator.validate(request)
@@ -18,18 +25,18 @@ class CommercialService:
                 missing_fields=missing_fields,
             )
 
-        calc = self.calculator.calculate(
-            base_price=2844.58,
-            transfer=350,
-            delivery=600,
-            vat_rate=request.vat_rate,
-        )
+        context = self.context_builder.build(request)
 
         return CommercialOfferResult(
-            status="calculated",
-            message="Цена рассчитана. Можно переходить к генерации КП.",
+            status="context_built",
+            message="Контекст КП собран. Готов к генерации документа.",
             missing_fields=[],
-            calculated_price_without_vat=calc["total_without_vat"],
-            calculated_price_with_vat=calc["total_with_vat"],
-            calculation=calc,
+            calculated_price_without_vat=context.calculated_price_without_vat,
+            calculated_price_with_vat=context.calculated_price_with_vat,
+            document_path=str(context.template_path),
+            calculation={
+                "base_price": context.base_price,
+                "template_path": str(context.template_path),
+                "certificate_path": str(context.certificate_path),
+            },
         )

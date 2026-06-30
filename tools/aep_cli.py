@@ -10,7 +10,8 @@ def main():
         payload={
             "company": "ООО ТЕПЛО",
             "customer": "Читинская таможня",
-            "product_name": "Уголь 2БПК",
+	    "product_name": "Уголь 2БПК",
+            "coal_mark": "2БПК",
             "volume_tons": 100,
             "destination": "Чита",
             "vat_rate": 22,
