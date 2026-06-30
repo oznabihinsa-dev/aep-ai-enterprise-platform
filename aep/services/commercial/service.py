@@ -4,11 +4,13 @@ from .context_builder import CommercialContextBuilder
 from .price_repository import PriceRepository
 from .template_repository import TemplateRepository
 from .certificate_repository import CertificateRepository
+from .document_generator import DocumentGenerator
 
 
 class CommercialService:
     def __init__(self):
         self.validator = CommercialValidator()
+        self.document_generator = DocumentGenerator()
         self.context_builder = CommercialContextBuilder(
             price_repo=PriceRepository("sample_data/price/Расчет цены на 2026 год.xlsx"),
             template_repo=TemplateRepository("sample_data/templates"),
@@ -26,14 +28,15 @@ class CommercialService:
             )
 
         context = self.context_builder.build(request)
+        doc_path = self.document_generator.generate(context)
 
         return CommercialOfferResult(
-            status="context_built",
-            message="Контекст КП собран. Готов к генерации документа.",
+            status="done",
+            message="Коммерческое предложение сформировано.",
             missing_fields=[],
             calculated_price_without_vat=context.calculated_price_without_vat,
             calculated_price_with_vat=context.calculated_price_with_vat,
-            document_path=str(context.template_path),
+            document_path=str(doc_path),
             calculation={
                 "base_price": context.base_price,
                 "template_path": str(context.template_path),
