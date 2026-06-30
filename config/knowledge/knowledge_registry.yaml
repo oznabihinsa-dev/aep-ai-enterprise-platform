@@ -1,0 +1,41 @@
+version: 0.1
+
+knowledge_objects:
+
+  - id: KNOW-001
+    name: Реквизиты и бланки компаний
+    type: company_documents
+    source_of_truth: google_drive
+    used_by:
+      - BP-001
+    related_employees:
+      - EMP-003
+
+  - id: KNOW-002
+    name: Сертификаты и качество
+    type: certificates
+    source_of_truth: google_drive
+    used_by:
+      - BP-001
+    related_employees:
+      - EMP-003
+      - EMP-004
+
+  - id: KNOW-003
+    name: Калькуляции и цены
+    type: price_calculations
+    source_of_truth: google_drive
+    used_by:
+      - BP-001
+    related_employees:
+      - EMP-003
+      - EMP-006
+
+  - id: KNOW-004
+    name: Шаблоны коммерческих предложений
+    type: templates
+    source_of_truth: google_drive
+    used_by:
+      - BP-001
+    related_employees:
+      - EMP-003
