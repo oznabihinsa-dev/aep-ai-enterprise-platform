@@ -4,4 +4,9 @@ class ServiceRouter:
     """
 
     def resolve(self, task):
-        raise NotImplementedError
+        task_type = getattr(task, "type", None)
+
+        if task_type == "commercial_offer":
+            return "commercial"
+
+        return "unknown"
