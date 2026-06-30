@@ -1,0 +1,19 @@
+version: 0.1
+
+paths:
+
+  - knowledge_id: KNOW-001
+    name: Реквизиты и бланки компаний
+    google_drive_path: AI-ОФИС/01_Компании/{company}/01_Реквизиты и бланки
+
+  - knowledge_id: KNOW-002
+    name: Сертификаты и качество
+    google_drive_path: AI-ОФИС/02_База знаний общая/07_Сертификаты и качество
+
+  - knowledge_id: KNOW-003
+    name: Калькуляции и цены
+    google_drive_path: AI-ОФИС/02_База знаний общая/08_Калькуляции и цены
+
+  - knowledge_id: KNOW-004
+    name: Шаблоны коммерческих предложений
+    google_drive_path: AI-ОФИС/02_База знаний общая/05_Шаблоны КП
