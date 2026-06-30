@@ -24,3 +24,4 @@ class CommercialOfferResult:
     calculated_price_without_vat: Optional[float] = None
     calculated_price_with_vat: Optional[float] = None
     document_path: Optional[str] = None
+    calculation: dict | None = None
