@@ -1,0 +1,11 @@
+relation: Company_Employee
+version: 1.0
+
+type: one-to-many
+
+from: Company
+to: Employee
+
+rule:
+  - company can have multiple employees
+  - employee belongs to one company

@@ -1,0 +1,14 @@
+entity: Company
+version: 1.0
+
+fields:
+  - id
+  - name
+  - short_name
+  - inn
+  - description
+
+relations:
+  - departments
+  - documents
+  - processes

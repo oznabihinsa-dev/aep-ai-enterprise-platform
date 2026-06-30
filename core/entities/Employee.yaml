@@ -1,0 +1,15 @@
+entity: Employee
+version: 1.0
+
+fields:
+  - id
+  - name
+  - role
+  - department
+  - status
+  - version
+
+relations:
+  - company
+  - processes
+  - knowledge
