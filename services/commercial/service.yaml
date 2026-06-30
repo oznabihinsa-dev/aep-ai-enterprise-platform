@@ -1,0 +1,18 @@
+id: SERVICE-001
+name: Commercial Service
+version: 0.1
+status: development
+
+owner: DEP-002
+
+business_processes:
+  - BP-001
+
+employees:
+  - EMP-003
+
+knowledge:
+  - KNOW-001
+  - KNOW-002
+  - KNOW-003
+  - KNOW-004

@@ -1,0 +1,11 @@
+steps:
+  - receive_request
+  - identify_company
+  - load_template
+  - load_certificate
+  - load_price
+  - calculate_price
+  - generate_offer
+  - validate
+  - export_docx
+  - export_pdf
